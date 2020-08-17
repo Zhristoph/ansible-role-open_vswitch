@@ -37,3 +37,16 @@
   with_subelements:
     - "{{ openVSwitchConfig }}"
     - vlan
+
+- name: Configure netplan interfaces for OpenSwitch
+  tags: openvswitch, test
+  template:
+    src: interfaces.yaml
+    dest: "/etc/netplan/{{ item.1 }}.yaml"
+    owner: root
+    group: root
+    mode: "0644"
+  with_subelements:
+    - "{{ openVSwitchConfig }}"
+    - port
+
