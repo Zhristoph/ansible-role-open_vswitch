@@ -39,7 +39,7 @@
     - vlan
 
 - name: Configure netplan interfaces for OpenSwitch
-  tags: openvswitch, test
+  tags: openvswitch
   template:
     src: interfaces.yaml
     dest: "/etc/netplan/{{ item.1 }}.yaml"
