@@ -17,7 +17,7 @@
     state: present
   loop: "{{ openVSwitchConfig }}"
 
-- name: Add port to OpenVSwitch bridges 
+- name: Add port to OpenVSwitch bridges
   tags: openvswitch
   openvswitch_port:
     bridge: "{{ item.0.bridge }}"
@@ -27,7 +27,7 @@
     - "{{ openVSwitchConfig }}"
     - port
 
-- name: Add VLANs to OpenVSwitch bridges 
+- name: Add VLANs to OpenVSwitch bridges
   tags: openvswitch
   openvswitch_bridge:
     bridge: "VLAN{{ item.1 }}"
